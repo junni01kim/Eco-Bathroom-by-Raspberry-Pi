@@ -1,0 +1,48 @@
+<!-- 5-1. 당일 사용자 수, 당일 변기 이용자 수, 현재 변기 인원, 현재 인원, 청소 체크 버튼, 로그 보기 버튼 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>화장실 관리 프로그램</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js" type="text/javascript"></script>
+            <script src="./static/PublicBathroomJsCodeMqtt.js", type="text/javascript"></script>
+
+        <!-- 오늘 날짜 -->
+        <h3> 오늘 날짜: 
+            {% print(date) %}
+        </h3>
+        <input type="button" onclick="connect()" value="connect">
+        <input type="button" onclick="subscribes()" value="data">
+    </head>
+    <body>
+        <h3>일일 이용자 현황</h3>
+        <hr>
+        <!-- 당일 이용자 수 칸 -->
+        <div id="count_person"></div> <br>
+        <!-- 당일 변기 이용자 수 칸 -->
+        <div id="count_bath"></div> <br>
+        
+        <hr>
+        <h3>당일 사용자 현황</h3>
+        <hr>
+        <!-- 현재 인원 -->
+        <div id="now_person"></div> <br>
+
+        <!-- 현재 변기 인원 -->
+        <div id="bath_now"></div> <br>
+            
+        <hr>
+        <h3>청소 체크 버튼 </h3> 
+        <form>
+            <!-- 추가 필요!! --> 
+            <!-- 청소 체크 버튼 --> 
+            <input type="button" onclick="checkClean()" value="청소 완료">
+            <!-- 로그보기 버튼 -->
+            <input type="button" onclick="selectView()" value="로그보기">
+            <br> <br>
+            <!-- if 청소체크 완료! commet -->
+            <div id="check_cleaning"></div> <br>
+        </form>
+        <hr>
+    </body>
+</html>
